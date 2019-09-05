@@ -8,9 +8,5 @@ import {Customer} from './customer';
 })
 export class AppComponent {
   title = 'demo-customers-management';
-  selectedCustomer: Customer;
 
-  selectHandler($event) {
-    this.selectedCustomer = $event;
-  }
 }

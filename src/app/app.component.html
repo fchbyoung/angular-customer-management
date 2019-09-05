@@ -1,5 +1,5 @@
-<app-add-customer></app-add-customer>
+<a [routerLink]="['/']">Home</a> - <a [routerLink]="['/add']">Add</a>
 
-<app-customers-list (customerClick)="selectHandler($event)"></app-customers-list>
+<p>Mọi component đều xuất hiện bên dưới dòng này:</p>
 
-<app-customer-detail [customer]="selectedCustomer"></app-customer-detail>
+<router-outlet></router-outlet>

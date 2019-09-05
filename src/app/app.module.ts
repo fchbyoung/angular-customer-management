@@ -7,13 +7,15 @@ import { CustomersListComponent } from './customers-list/customers-list.componen
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { FormsModule } from '@angular/forms';
+import { CustomersInfoComponent } from './customers-info/customers-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomersListComponent,
     CustomerDetailComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    CustomersInfoComponent
   ],
   imports: [
     BrowserModule,
