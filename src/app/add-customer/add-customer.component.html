@@ -1,0 +1,28 @@
+<form #customerForm="ngForm" (ngSubmit)="addCustomer(customerForm)">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="number" name="id" ngModel />
+      </td>
+      <td>
+        <input type="text" name="fullName" ngModel />
+      </td>
+      <td>
+        <input type="text" name="age" ngModel />
+      </td>
+      <td>
+        <input type="text" name="address" ngModel />
+      </td>
+    </tr>
+    <tr>
+      <button type="submit">Add</button>
+    </tr>
+  </table>
+
+</form>

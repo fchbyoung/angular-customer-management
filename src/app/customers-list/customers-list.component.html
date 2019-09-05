@@ -1,0 +1,11 @@
+<ul>
+  <li
+
+    *ngFor="let customer of customers"
+    (click)="selectCustomer(customer)"
+
+  >
+
+    {{ customer.fullName }} - {{ customer.age }} - <button (click)="deleteCustomer(customer.id)">Delete</button>
+  </li>
+</ul>

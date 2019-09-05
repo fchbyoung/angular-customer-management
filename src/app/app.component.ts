@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Customer} from './customer';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'demo-customers-management';
+  selectedCustomer: Customer;
+
+  selectHandler($event) {
+    this.selectedCustomer = $event;
+  }
 }
