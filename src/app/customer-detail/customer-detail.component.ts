@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Customer} from '../customer';
+import {CustomerService} from '../customer.service';
+import {filterStackTrace} from 'protractor/built/util';
 
 @Component({
   selector: 'app-customer-detail',
@@ -9,10 +11,32 @@ import {Customer} from '../customer';
 export class CustomerDetailComponent implements OnInit {
 
   @Input() customer: Customer;
+  message: string;
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+  }
+
+  editCustomer(customerForm) {
+
+    const id = customerForm.value.id;
+
+    // const firstName = customerForm.value.firstName;
+    // const lastName = customerForm.value.lastName;
+
+    // destructuring assignment
+    const { firstName, lastName } = customerForm.value;
+    const customer = {
+      firstName,
+      lastName
+    };
+
+    this.customerService.edit(id, customer).subscribe( () => {
+      this.message = 'Successfully updated';
+    }, error => {
+      this.message = 'Failed when updating customer';
+    });
   }
 
 }

@@ -33,4 +33,10 @@ export class CustomerService {
     const url = this.apiUrl + '/customers/' + id;
     return this.httpClient.delete(url);
   }
+
+  // Đang lỗi cors! Ai sửa giúp!
+  edit(id: number, customer: Customer): Observable<any> {
+    const url = this.apiUrl + '/customers/' + id;
+    return this.httpClient.patch(url, customer);
+  }
 }
