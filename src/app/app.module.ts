@@ -8,6 +8,7 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { FormsModule } from '@angular/forms';
 import { CustomersInfoComponent } from './customers-info/customers-info.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CustomersInfoComponent } from './customers-info/customers-info.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

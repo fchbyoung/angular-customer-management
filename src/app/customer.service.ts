@@ -1,52 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Customer } from './customer';
 import {Observable, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
+  apiUrl = environment.apiUrl;
 
-  customersList: Customer[] = [
-    {
-      id: 1,
-      firstName: 'James',
-      lastName: 'Gosling'
-    }
-  ];
+  constructor(private httpClient: HttpClient) {
 
-  constructor() {
-
-  }
-
-  getList(): Customer[] {
-    return this.customersList;
   }
 
   getListRealtime(): Observable<Customer[]> {
-    return of(this.customersList);
+    const url = `${this.apiUrl}/customers`;
+    return this.httpClient.get<Customer[]>(url);
   }
 
-  getDetail(id: number) {
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.customersList.length; i++) {
-      if (this.customersList[i].id === id) {
-        return this.customersList[i];
-      }
-    }
+  getDetail(id: number): Observable<Customer> {
+    const url = `${this.apiUrl}/customers/${id}`;
+    return this.httpClient.get<Customer>(url);
   }
 
   add(customer: Customer) {
-    this.customersList.push(customer);
+    const url = this.apiUrl + '/customers';
+    return this.httpClient.post(url, customer);
   }
 
   delete(id: number) {
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.customersList.length; i++) {
-      if (this.customersList[i].id === id) {
-        this.customersList.splice(i, 1);
-        break;
-      }
-    }
+    const url = this.apiUrl + '/customers/' + id;
+    return this.httpClient.delete(url);
   }
 }
