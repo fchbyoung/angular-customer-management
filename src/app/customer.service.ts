@@ -10,15 +10,8 @@ export class CustomerService {
   customersList: Customer[] = [
     {
       id: 1,
-      fullName: 'James Gosling',
-      age: 65,
-      address: 'US'
-    },
-    {
-      id: 2,
-      fullName: 'Linus Torvalds',
-      age: 49,
-      address: 'US'
+      firstName: 'James',
+      lastName: 'Gosling'
     }
   ];
 
