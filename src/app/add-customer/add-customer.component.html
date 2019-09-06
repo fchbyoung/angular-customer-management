@@ -1,3 +1,5 @@
+<div *ngIf="message"> {{ message }} </div>
+
 <form #customerForm="ngForm" (ngSubmit)="addCustomer(customerForm)">
   <table>
     <tr>

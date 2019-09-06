@@ -7,6 +7,7 @@ import {CustomerService} from '../customer.service';
   styleUrls: ['./add-customer.component.scss']
 })
 export class AddCustomerComponent implements OnInit {
+  message: string;
 
   constructor(private customerService: CustomerService) { }
 
@@ -16,7 +17,11 @@ export class AddCustomerComponent implements OnInit {
   addCustomer(customerForm) {
     console.log(customerForm.value);
 
-    this.customerService.add(customerForm.value);
+    this.customerService.add(customerForm.value).subscribe( () => {
+      this.message = 'Successfully added!';
+    }, error => {
+      this.message = 'Error when adding customer!';
+    });
   }
 
 }

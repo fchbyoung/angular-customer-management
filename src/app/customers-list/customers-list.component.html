@@ -1,11 +1,12 @@
+<div *ngIf="message"> {{ message }} </div>
+
 <ul>
-  <li
+  <li *ngFor="let customer of customers">
 
-    *ngFor="let customer of customers"
-    (click)="selectCustomer(customer)"
+    <span (click)="selectCustomer(customer)">{{ customer.firstName }} {{ customer.lastName }}</span>
 
-  >
+    -
 
-    {{ customer.firstName }} {{ customer.lastName }} - <button (click)="deleteCustomer(customer.id)">Delete</button>
+    <button (click)="deleteCustomer(customer.id)">Delete</button>
   </li>
 </ul>
